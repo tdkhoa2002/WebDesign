@@ -1,0 +1,596 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+body.dark {
+    background-color: #444;
+}
+div#container #navigation ul#menu li a#default {
+    color: orangered;
+}
+a {
+    text-decoration: none;
+}
+/*menu*/
+div#container {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+.dark #profile i {
+    color: white;
+}
+#profile {
+    position: absolute;
+    right: 150px;
+    top: 20px;
+    z-index: 9999;
+}
+#profile-content::before {
+    content: "";
+    border-style:  solid;
+    border-width: 11px;
+    border-color: transparent transparent #333 transparent ;
+    position: absolute;
+    top: -23px;
+    right: 83px;
+}
+#profile-content {
+    position: absolute;
+    background-color: #fff;
+    top: 40px;
+    right: -110px;
+    z-index: 9999;
+    width: 200px;
+    padding: 10px;
+    color: black;
+    display: none;
+    border: 1px solid black;
+    box-shadow: 5px #EB5E0B;
+}
+#profile-content a:hover {
+    color: #63dbdb;
+}
+#profile:hover > #profile-content {
+    display: block;
+}
+#profile i {
+    font-size: 30px;
+    position: fixed;
+}
+#profile a {
+    color: black;
+}
+.dark #toggle {
+    color: white;
+}
+#toggle {
+    font-size: 30px;
+    position: absolute;
+    right: 100px;
+    top: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+#toggle > i {
+    position: fixed;
+}
+#container #onTop {
+    z-index: 999;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    padding: 12px;
+    width: 50px;
+    height: 50px;
+    background-color: #FF3F00;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    color: white;
+}
+.dark #container #onTop {
+    color: #444;
+}
+#container #onTop i {
+    font-size: 30px;
+}
+#container div#navigation {
+    float: left;
+    position: fixed;
+    width: 300px;
+    min-height: 100%;
+    background-color: #fff;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    transition: width 1s ease-in-out;
+    overflow: hidden;
+}
+body.dark #container div#navigation {
+    color: white;
+    background-color: #444;
+}
+#container div#navigation.active {
+    width: 0;
+}
+
+div#container #navigation ul {
+    width: 100%;
+    position: relative;
+    top: 150px;
+    left: 37px;
+}
+#container div#navigation .social-media {
+    display: flex;
+}
+
+
+#container div#navigation .social-media li a i {
+    font-size: 40px;
+    color: black;
+    margin-right: 60px;
+}
+.dark #container div#navigation .social-media li a i {
+    color: white;
+}
+div#container #navigation ul li {
+    list-style: none;
+    margin-bottom: 50px;
+}
+div#container #navigation ul#menu li a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 26px;
+    opacity: 0.5;
+}
+.dark div#container #navigation ul#menu li a {
+    color: white;
+}
+div#container #navigation ul#menu li a:hover {
+    opacity: 1;
+}
+div#container #navigation div#mode {
+    position: absolute;
+    bottom: 40px;
+    left: 35px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 50%;
+    color: white;
+}
+div#container #navigation div#mode::before {
+    content: '\f186';
+    font-family: 'Font Awesome 5 Free'; 
+    font-size: 20px;
+}
+div#container #navigation div#mode::after {
+    content: "Switch To Night Mode";
+    position: absolute;
+    bottom: 10px;
+    left: 45px;
+    font-size: 18px;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.7);
+}
+.dark div#container #navigation div#mode::before {
+    content: '\f185';
+}
+.dark div#container #navigation div#mode::after {
+    content: "Switch To Light Mode";
+}
+body.dark div#container #navigation div#mode {
+    background-color: white;
+    color: black;
+}
+body.dark div#container #navigation div#mode::after {
+    color: white;
+}
+
+
+/*main*/
+#load-more {
+    display: flex;
+    justify-content: center;
+}
+#load-more button {
+    width: 180px;
+    height: 50px;
+    border: 3px solid #FDB827;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    text-align: center;
+    transition: background-color 0.5s ease, border 0.5s ease;
+}
+#load-more button:hover {
+    background-color: #777;
+    border: #333;
+}
+.dark #container #main {
+    background-color: #333;
+}
+#container #main {
+    position: absolute;
+    left: 300px;
+    min-height: 100%;
+    width: calc(100% - 300px);
+    background-color: white;
+    transition: left 1s ease-in-out, width 1s ease-in-out;
+}
+#container #main.active {
+    left: 0;
+    width: 100%;
+}
+/* topbar */
+#main > div:first-child {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+.dark #main > div:first-child {
+    background-color: #333;
+}
+#main div#topbar {
+    position: relative;
+    padding: 20px;
+    padding-left: 50px;
+}
+
+#main #topbar h2 {
+    margin-left: 10px;
+}
+.dark #main #topbar h2 a {
+    color: #fff;
+}
+#main #topbar h2 a {
+    text-decoration: none;
+    color: black;
+}
+/**/
+#main #mask {
+    width: 100%;
+    height: 67px;
+}
+/**/
+#main > img {
+    width: 100%;
+}
+#main #categories {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#main #categories ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main #categories ul li {
+    list-style: none;
+}
+.dark #main #categories ul li a {
+    color: rgba(255, 255, 255, 0.8);
+}
+#main #categories ul li a {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    margin-right: 50px;
+    font-size: 30px;
+}
+#main #categories ul li:hover a {
+    color: #EB5E0B;
+}
+/* services */
+
+#main #services {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#main #services .box-content-service {
+    width: calc(100% / 4);
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.dark #main #services .box-content-service .icon-service i {
+    color: rgba(255, 255, 255, 0.8);
+}
+#main #services .box-content-service .icon-service i {
+    font-size: 30px;
+}
+.dark #main #services .box-content-service .title-service h4 {
+    color: rgba(255, 255, 255, 0.8);
+}
+#main #services .box-content-service .title-service h4 {
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.dark #main #services .box-content-service .content-service p {
+    color: rgba(255, 255, 255, 0.8);
+}
+#main #services .box-content-service .content-service p {
+    font-size: 16px;
+}
+#main.active #services .box-content-service .content-service p {
+    font-size: 18px;
+}
+.dark #main > h2 {
+    color: rgba(255, 255, 255, 0.8);
+}
+#main > h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+/* products */
+#main #items {
+    min-height: 100%;
+    padding: 0 50px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#main #items .item {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 20%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    margin-bottom: 5%;
+}
+#main #items .item > img {
+    width: 100%;
+}
+#main #items .item a {
+    text-decoration: none;
+    color: #fff;
+}
+.dark #main #items .item > h3 {
+    color: #fff;
+}
+#main #items .item > h3 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+/*footer*/
+
+#main #footer {
+    background-color: #111;
+    width: 100%;
+    height: auto;
+    padding: 35px 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#main #footer #about-us {
+    width: 35%;
+}
+#main #footer #about-us > h1 {
+    color: #fff;
+    width: 100%;
+    position: relative;
+}
+#main #footer #about-us > h1::after {
+    content: " ";
+    border-bottom: 3px solid red;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 40%;
+}
+#main #footer #about-us > div {
+    margin-top: 30px;
+}
+#main #footer #about-us > div > p {
+    color: #777;
+}
+#main #footer #about-us .social-media {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+#main #footer #about-us .social-media li {
+    margin-right: 30px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+}
+#main #footer #about-us .social-media li a {
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+}
+
+#main #footer #quick-links {
+    width: 30%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#main #footer #quick-links > h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+}
+#main #footer #quick-links > h1::after {
+    position: absolute;
+    content: " ";
+    border-bottom: 3px solid red;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+#main #footer #quick-links > ul li a {
+    color: #777;
+    text-decoration: none;
+    font-size: 18px;
+}
+#main #footer #contact {
+    width: 35%;
+}
+#main #footer #contact > h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    width: 100%;
+    position: relative;
+}
+#main #footer #contact > h1::after {
+    position: absolute;
+    content: " ";
+    border-bottom: 3px solid red;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+}
+#main #footer #contact div {
+    display: flex;
+    flex-wrap: nowrap;
+}
+#main #footer #contact div p {
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 376px) {
+    #main div#topbar {
+        padding: 20px 10px;
+    }
+    #profile {
+        right: 95px;
+    }
+    #toggle {
+        right: 45px;
+    }
+    #main #categories {
+        margin-top: 18px;
+        margin-bottom: 0;
+    }
+    #main #categories ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    #main #categories ul li {
+        width: 100%;
+        margin: 10px 0;
+    }
+    #main #categories ul li a {
+        font-size: 16px;
+        margin: 0;
+    }
+    #main #services {
+        align-items: flex-start;
+        margin: 30px 0;
+    }
+    #main #services .box-content-service {
+        padding: 0;
+    }
+    #main #services .box-content-service .icon-service i {
+        font-size: 24px;
+    }
+    #main.active #services .box-content-service .content-service p {
+        font-size: 16px;
+    }
+    #main #items {
+        padding: 0;
+    }
+    #main #items .item {
+        width: 45%;
+        
+    }
+    #container #main {
+        left: 0;
+    }
+    #main #categories {
+        width: 100%;
+    }
+    #container div#navigation {
+        background-color: #444;
+        position: fixed;
+    }
+    #main #footer {
+        padding: 5px 5px;
+    }
+    #main #footer #about-us {
+        width: 33.3%;
+    }
+    #main #footer #quick-links {
+        padding: 0 13px 0 0;
+        width: 33.3%;
+    }
+    #main #footer #contact {
+        width: 33.3%;
+    }
+    #main #footer #contact div p {
+        color: #777;
+    }
+    #main #footer #contact > h1 {
+        font-size: 26px;
+    }
+    #main #footer #about-us > h1 {
+        font-size: 26px;
+    }
+    #main #footer #quick-links > h1 {
+        font-size: 26px;
+    }
+    #main #footer #about-us .social-media {
+        font-size: 28px;
+        justify-content: inherit;
+    }
+    /**/
+    #container #main {
+        left: 0;
+        width: 100%;
+    }
+    #container div#navigation {
+        width: 250px;
+        z-index: 99999;
+        background-color: #fff;
+    }
+    #container div#navigation.active {
+        width: 0;
+    }
+    div#container #navigation ul {
+        left: 0;
+        padding: 10px;
+    }
+    div#container #navigation ul li {
+        margin-bottom: 30px;
+        width: 25.3%;
+    }
+    div#container #navigation div#mode {
+        left: 10px;
+        bottom: 175px;
+    }
+}
